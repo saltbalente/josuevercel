@@ -8,8 +8,12 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="./css/critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./css/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="./fonts/cinzel-v23-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./fonts/cinzel-v23-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Fuentes con font-display: swap para optimizar la visualización -->
+    <link rel="stylesheet" href="./css/fonts.css">
     
     <!-- DNS Prefetch for external domains -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -410,8 +414,15 @@
     <!-- Optimized JavaScript -->
     <script src="./js/main.min.js" defer></script>
     
-    <!-- Font Awesome (loaded asynchronously) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <!-- Font Awesome (cargado localmente con font-display: swap) -->
+    <link rel="preload" href="./fonts/fontawesome/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./fonts/fontawesome/all.min.css"></noscript>
+    
+    <!-- CSS personalizado para Font Awesome con font-display: swap -->
+    <link rel="stylesheet" href="./css/fontawesome-custom.css">
+    
+    <!-- Precargar fuentes Font Awesome para mejorar rendimiento -->
+    <link rel="preload" href="./fonts/fontawesome/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/fontawesome/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
 </body>
 </html>
