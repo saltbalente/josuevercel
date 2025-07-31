@@ -1,5 +1,34 @@
 # 🔧 Solución de Problemas: Subdominios Long Tail
 
+## ✅ PROBLEMA IDENTIFICADO Y SOLUCIONADO
+
+**Fecha de solución:** $(date)
+**Estado:** RESUELTO - Esperando redepliegue de Vercel
+
+### 🎯 **Problema Principal**
+Las reglas de rewrite en `vercel.json` estaban interceptando TODAS las solicitudes, incluyendo los archivos JavaScript de configuración, causando que `CONFIG` apareciera como "no definida" en los subdominios.
+
+### 🛠️ **Solución Implementada**
+Se agregaron reglas específicas en `vercel.json` para servir archivos estáticos directamente:
+
+```json
+"rewrites": [
+  { "source": "/debug", "destination": "/api/server.js" },
+  { "source": "/js/(.*)", "destination": "/js/$1" },
+  { "source": "/css/(.*)", "destination": "/css/$1" },
+  { "source": "/images/(.*)", "destination": "/images/$1" },
+  { "source": "/fonts/(.*)", "destination": "/fonts/$1" },
+  { "source": "/", "destination": "/api/server.js" }
+]
+```
+
+### ✅ **Verificación Local Exitosa**
+Las pruebas locales confirman que:
+- ✅ Los archivos de configuración se sirven correctamente
+- ✅ La detección de subdominios funciona perfectamente
+- ✅ Cada subdominio carga su configuración específica
+- ✅ La página de debug muestra información correcta
+
 ## Problema Reportado
 Los subdominios `brujeria-consulta-gratis.esoterico.app` y `amarres-de-amor-efectivos.esoterico.app` están mostrando la misma configuración en lugar de sus configuraciones específicas.
 
