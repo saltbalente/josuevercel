@@ -53,11 +53,15 @@ sitio_descargado/
 
 ## 🚀 Despliegue en Vercel
 
-### Opción 1: Despliegue con Múltiples Subdominios (Recomendado)
+### Opción 1: Despliegue con Múltiples Subdominios Long-tail (Recomendado)
 1. Conecta tu repositorio de GitHub a Vercel
 2. Vercel detectará automáticamente la configuración
-3. Configura los subdominios para cada versión del sitio
-4. Cada subdominio cargará automáticamente su configuración específica
+3. Configura subdominios con palabras clave para cada versión del sitio:
+   - `brujeria-consulta-gratis.esoterico.app` → Carga `config-3.js`
+   - `amarres-de-amor-efectivos.esoterico.app` → Carga `config-5.js`
+   - `brujos-expertos-online.esoterico.app` → Carga `config-6.js`
+   - etc.
+4. Cada subdominio long-tail cargará automáticamente su configuración específica
 
 **Consulta el archivo [README-DEPLOY.md](./README-DEPLOY.md) para instrucciones detalladas sobre cómo configurar los subdominios.**
 

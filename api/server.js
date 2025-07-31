@@ -3,6 +3,21 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = (req, res) => {
+  // Si se solicita la página de debug, servirla
+  if (req.url === '/debug') {
+    const debugPath = path.join(__dirname, '..', 'debug-subdomain.html');
+    fs.readFile(debugPath, 'utf8', (err, data) => {
+      if (err) {
+        res.statusCode = 404;
+        res.end('Debug page not found');
+        return;
+      }
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      res.end(data);
+    });
+    return;
+  }
+  
   // Obtener el host de la solicitud
   const host = req.headers.host || '';
   
@@ -15,21 +30,21 @@ module.exports = (req, res) => {
     subdominio = hostParts[0];
   }
   
-  // Mapeo de subdominios a configuraciones
+  // Mapeo de subdominios long tail a configuraciones
   const configMap = {
-    'config3': 3,
-    'config5': 5,
-    'config6': 6,
-    'config7': 7,
-    'config8': 8,
-    'config9': 9,
-    'config11': 11,
-    'config15': 15,
-    'config16': 16,
-    'config17': 17,
-    'config18': 18,
-    'config20': 20,
-    'config21': 21
+    'brujeria-consulta-gratis': 3,
+    'amarres-de-amor-efectivos': 5,
+    'brujos-expertos-online': 6,
+    'hechizos-de-amor-poderosos': 7,
+    'brujeria-blanca-consulta': 8,
+    'amarres-rapidos-efectivos': 9,
+    'brujos-consulta-gratis': 11,
+    'magia-blanca-amarres': 15,
+    'hechizos-efectivos-amor': 16,
+    'brujeria-poderosa-online': 17,
+    'amarres-de-pareja-gratis': 18,
+    'brujos-especialistas-amor': 20,
+    'consulta-esoterica-gratis': 21
   };
   
   // Determinar qué configuración usar

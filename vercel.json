@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/debug", "destination": "/api/server.js" },
     { "source": "/", "destination": "/api/server.js" }
   ],
   "headers": [

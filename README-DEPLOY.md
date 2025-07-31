@@ -33,20 +33,20 @@ Si tienes un dominio personalizado (por ejemplo, `tudominio.com`):
 
 1. Ve a la sección "Domains" en la configuración del proyecto en Vercel.
 2. Agrega tu dominio personalizado y verifica la propiedad según las instrucciones.
-3. Una vez verificado, agrega los siguientes subdominios (uno por cada configuración):
-   - `config3.tudominio.com`
-   - `config5.tudominio.com`
-   - `config6.tudominio.com`
-   - `config7.tudominio.com`
-   - `config8.tudominio.com`
-   - `config9.tudominio.com`
-   - `config11.tudominio.com`
-   - `config15.tudominio.com`
-   - `config16.tudominio.com`
-   - `config17.tudominio.com`
-   - `config18.tudominio.com`
-   - `config20.tudominio.com`
-   - `config21.tudominio.com`
+3. Una vez verificado, agrega los siguientes subdominios long tail (uno por cada configuración):
+   - `brujeria-consulta-gratis.esoterico.app`
+   - `amarres-de-amor-efectivos.esoterico.app`
+   - `brujos-expertos-online.esoterico.app`
+   - `hechizos-de-amor-poderosos.esoterico.app`
+   - `brujeria-blanca-consulta.esoterico.app`
+   - `amarres-rapidos-efectivos.esoterico.app`
+   - `brujos-consulta-gratis.esoterico.app`
+   - `magia-blanca-amarres.esoterico.app`
+   - `hechizos-efectivos-amor.esoterico.app`
+   - `brujeria-poderosa-online.esoterico.app`
+   - `amarres-de-pareja-gratis.esoterico.app`
+   - `brujos-especialistas-amor.esoterico.app`
+   - `consulta-esoterica-gratis.esoterico.app`
 
 4. Para cada subdominio, configura los registros DNS en tu proveedor de dominio:
    - Tipo: `CNAME`
@@ -59,9 +59,19 @@ Si no tienes un dominio personalizado, puedes usar subdominios en el dominio `.v
 
 1. Ve a la sección "Domains" en la configuración del proyecto en Vercel.
 2. Para cada configuración, agrega un nuevo dominio con el formato:
-   - `config3-tuproyecto.vercel.app`
-   - `config5-tuproyecto.vercel.app`
-   - etc.
+   - `brujeria-consulta-gratis-tuproyecto.vercel.app`
+   - `amarres-de-amor-efectivos-tuproyecto.vercel.app`
+   - `brujos-expertos-online-tuproyecto.vercel.app`
+   - `hechizos-de-amor-poderosos-tuproyecto.vercel.app`
+   - `brujeria-blanca-consulta-tuproyecto.vercel.app`
+   - `amarres-rapidos-efectivos-tuproyecto.vercel.app`
+   - `brujos-consulta-gratis-tuproyecto.vercel.app`
+   - `magia-blanca-amarres-tuproyecto.vercel.app`
+   - `hechizos-efectivos-amor-tuproyecto.vercel.app`
+   - `brujeria-poderosa-online-tuproyecto.vercel.app`
+   - `amarres-de-pareja-gratis-tuproyecto.vercel.app`
+   - `brujos-especialistas-amor-tuproyecto.vercel.app`
+   - `consulta-esoterica-gratis-tuproyecto.vercel.app`
 
 ## Cómo Funciona
 
