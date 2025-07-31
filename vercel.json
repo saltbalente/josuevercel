@@ -1,11 +1,15 @@
 {
+<<<<<<< HEAD
   "version": 2,
+=======
+>>>>>>> eb132722a8331462a245c72688f801513ecd6a73
   "builds": [
     {
       "src": "*.html",
       "use": "@vercel/static"
     }
   ],
+<<<<<<< HEAD
   "routes": [
     {
       "src": "/sw.js",
@@ -45,6 +49,32 @@
   ],
   "headers": [
     {
+=======
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js|fonts)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+>>>>>>> eb132722a8331462a245c72688f801513ecd6a73
       "source": "/(.*)",
       "headers": [
         {
@@ -62,8 +92,19 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+<<<<<<< HEAD
+=======
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+>>>>>>> eb132722a8331462a245c72688f801513ecd6a73
         }
       ]
     }
   ]
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> eb132722a8331462a245c72688f801513ecd6a73
