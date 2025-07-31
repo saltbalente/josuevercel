@@ -1,0 +1,34 @@
+/**
+ * Configuración para la versión 9
+ * Este archivo contiene los valores configurables para la landing page
+ */
+
+const CONFIG = {
+    // Configuración del número de teléfono
+    phone: {
+        number: '12028318214', // Número sin formato
+        formatted: '(202) 831-8214' // Número con formato para mostrar
+    },
+    
+    // Configuración de WhatsApp
+    whatsapp: {
+        number: '16098854854', // Número de WhatsApp sin el +
+        defaultMessage: 'Hola%2C%20quiero%20consultar%20gratis%20con%20el%20maestro%2C%20por%20favor.' // Mensaje predeterminado (codificado para URL)
+    },
+    
+    // Configuración de analytics
+    analytics: {
+        gtmId: 'GTM-T4BCC6P' // ID de Google Tag Manager
+    },
+    
+    // Información del brujo (opcional)
+    brujo: {
+        name: 'Jacob', // Nombre del brujo
+        title: 'Maestro Jacob' // Título del brujo
+    }
+};
+
+// Exportar la configuración para que esté disponible globalmente
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { CONFIG };
+}

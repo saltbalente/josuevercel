@@ -1,4 +1,22 @@
 {
+  "version": 2,
+  "alias": ["maestrobrujo.com"],
+  "domains": [
+    "maestrobrujo.com",
+    "config3.maestrobrujo.com",
+    "config5.maestrobrujo.com",
+    "config6.maestrobrujo.com",
+    "config7.maestrobrujo.com",
+    "config8.maestrobrujo.com",
+    "config9.maestrobrujo.com",
+    "config11.maestrobrujo.com",
+    "config15.maestrobrujo.com",
+    "config16.maestrobrujo.com",
+    "config17.maestrobrujo.com",
+    "config18.maestrobrujo.com",
+    "config20.maestrobrujo.com",
+    "config21.maestrobrujo.com"
+  ],
   "rewrites": [
     { "source": "/", "destination": "/api/server.js" }
   ],

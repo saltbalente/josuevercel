@@ -3,8 +3,14 @@
  * Reduce el tamaño de la carga inicial y carga GTM solo cuando es necesario
  */
 
+// Cargar configuración
+if (typeof CONFIG === 'undefined') {
+    // Si CONFIG no está definido, cargar el archivo de configuración
+    document.write('<script src="./js/config.js"></script>');
+}
+
 // Configuración
-const GTM_ID = 'GTM-T4BCC6P';
+const GTM_ID = typeof CONFIG !== 'undefined' ? CONFIG.analytics.gtmId : 'GTM-T4BCC6P';
 const DELAY_LOAD = 3000; // Tiempo en ms para cargar GTM si no hay interacción
 
 // Función principal para cargar GTM

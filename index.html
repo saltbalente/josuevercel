@@ -101,6 +101,9 @@
     }
     </script>
     
+    <!-- Archivo de configuración -->
+    <script src="./js/config.js"></script>
+    
     <!-- Google Tag Manager - Cargador optimizado -->
     <script src="./js/gtm-loader.js" async defer></script>
     
@@ -115,11 +118,21 @@
         <div class="header">
             <div class="logo">BRUJO EXPERTO</div>
             <div class="phone-container">
-                <a class="phone-link" href="tel:9154004296">9154004296</a>
+                <a class="phone-link" href="tel:9154004296" id="header-phone">9154004296</a>
                 <div class="call-icon">
                     <i class="fa fa-phone"></i>
                 </div>
             </div>
+            <script>
+                // Actualizar número de teléfono desde la configuración
+                if (typeof CONFIG !== 'undefined') {
+                    const phoneLink = document.getElementById('header-phone');
+                    if (phoneLink) {
+                        phoneLink.href = `tel:${CONFIG.phone.number}`;
+                        phoneLink.textContent = CONFIG.phone.number;
+                    }
+                }
+            </script>
             <div class="description2">Pague al ver resultados</div>
         </div>
 
@@ -155,7 +168,7 @@
                     <h2 class="mystic-title">Alta Brujeria Poderosa</h2>
                     <p class="mystic-subtitle">Brujería Efectiva y de alta Calidad.</p>
                     <div class="mystic-cta">
-                        <a class="mystic-button" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
+                        <a class="mystic-button whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
                             <i class="fab fa-whatsapp mystic-icon"></i>
                             <span class="mystic-button-text">Consulta Gratis</span>
                             <div class="mystic-glow"></div>
@@ -170,7 +183,7 @@
                 </p>
             </div>
 
-            <a class="mystic-button" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
+            <a class="mystic-button whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
                 <i class="fab fa-whatsapp mystic-icon"></i>
                 <span class="mystic-button-text">Consulta Gratis</span>
                 <div class="mystic-glow"></div>
@@ -190,7 +203,7 @@
                     <h2 class="mystic-title">Tarot Profesional</h2>
                     <p class="mystic-subtitle">Revelación de Destino</p>
                     <div class="mystic-cta">
-                        <a class="mystic-button" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
+                        <a class="mystic-button whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
                             <i class="fab fa-whatsapp mystic-icon"></i>
                             <span class="mystic-button-text">Consulta Gratis</span>
                             <div class="mystic-glow"></div>
@@ -217,12 +230,12 @@
                             Soy un brujo altamente experimentado con más de <span class="arcane-gold-text">35 años</span> de práctica en el arte oscuro. He forjado mi reputación ayudando a cientos de almas a conquistar sus <span class="arcane-gold-text">deseos amorosos</span>, <span class="arcane-gold-text">éxito profesional</span> y <span class="arcane-gold-text">poder personal</span>.
                         </p>
                         <div class="arcane-connection-btns">
-                            <a class="arcane-phone-link" href="tel:9154004296">
+                            <a class="arcane-phone-link" href="tel:9154004296" id="arcane-phone">
                                 <i class="fas fa-phone-alt arcane-btn-icon"></i>
-                                <span>+1 (915) 400-4296</span>
+                                <span id="arcane-phone-formatted">+1 (915) 400-4296</span>
                                 <div class="arcane-link-glow"></div>
                             </a>
-                            <a class="arcane-cta-btn" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
+                            <a class="arcane-cta-btn whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
                                 <i class="fab fa-whatsapp arcane-btn-icon"></i>
                                 <span>WhatsApp</span>
                                 <div class="arcane-aura-effect"></div>
@@ -243,7 +256,7 @@
                 <p class="description">
                     Si respondió sí a alguna de estas preguntas, entonces ha llegado al lugar correcto. En nuestro servicio de brujería, ofrecemos una amplia variedad de opciones mágicas para ayudarle a lograr sus metas amorosas. Desde amarres de amor, endulzamientos, hechizos hasta entierros vudu, tenemos la solución perfecta para usted.
                 </p>
-                <a href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
+                <a href="https://wa.me/+12545956299?text=NECESITO%20AYUDA" class="whatsapp-link">
                     <button class="button">Whatsapp</button>
                 </a>
             </div>
@@ -324,7 +337,7 @@
                 <p class="description">
                     Los poderosos trabajos del maestro Jacob, son debidamente analizados con una consulta previa, para así determinar qué tipo de trabajo necesita y tener plena seguridad y certeza del buen desarrollo del proceso a realizar. Lo importante para el trabajo, es una buena canalización de energía y el convencimiento de que a esa persona a la que lanzamos el trabajo le va funcionar 100%.
                 </p>
-                <a class="more-info" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA"><i class="fab fa-whatsapp arcane-btn-icon"></i> WhatsApp</a>
+                <a class="more-info whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA"><i class="fab fa-whatsapp arcane-btn-icon"></i> WhatsApp</a>
             </div>
 
             <div class="container">
@@ -339,7 +352,7 @@
                     <h2 style="color: #e5e5e5; margin-right: 15px;">
                         Maestro <span style="animation: vibrate 0.5s ease-in-out infinite; display: inline-block; color: gold;">Jacob</span>
                     </h2>
-                    <a class="more-info" href="tel:9154004296"><i class="fas fa-phone-alt arcane-btn-icon"></i> 9154004296</a>
+                    <a class="more-info" href="tel:9154004296" id="footer-phone"><i class="fas fa-phone-alt arcane-btn-icon"></i> <span id="footer-phone-text">9154004296</span></a>
                 </div>
                 <p class="description">
                     Si estas atravesando por un mal momento en tu relación y no sabes que hacer, NO LO PIENSES MÁS debes tomar las riendas y poner todo en su lugar. Deseo conocer tu caso, seguro que tengo la solución para que seas feliz con quien deseas estar.
@@ -352,7 +365,7 @@
                 <p class="description">
                     Como medida de garantía el maestro Jacob solo usted pagara cuando vea resultados en su trabajo. Yo trabajo y despues usted paga.
                 </p>
-                <a class="more-info" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA"><i class="fab fa-whatsapp arcane-btn-icon"></i> WhatsApp</a>
+                <a class="more-info whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA"><i class="fab fa-whatsapp arcane-btn-icon"></i> WhatsApp</a>
                 
                 <h2 id="fire" style="color: #000000; font-weight: bold; text-transform: uppercase; margin-top: 20px;">Consulta Gratis</h2>
                 <p class="description">
@@ -388,7 +401,7 @@
 
         <!-- Fixed Action Buttons -->
         <div class="contenedor-botones-misticos">
-            <a class="boton-magico llamada-btn" href="tel:9154004296">
+            <a class="boton-magico llamada-btn" href="tel:9154004296" id="floating-phone">
                 <div class="orb-magico">
                     <i class="fas fa-phone-alt icono-magico"></i>
                     <div class="aura-btn"></div>
@@ -397,7 +410,7 @@
                 <span class="texto-boton">Llamar Ahora</span>
                 <div class="brillo-activo"></div>
             </a>
-            <a class="boton-magico whatsapp-btn" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
+            <a class="boton-magico whatsapp-btn whatsapp-link" href="https://wa.me/+12545956299?text=NECESITO%20AYUDA">
                 <div class="orb-magico">
                     <i class="fab fa-whatsapp icono-magico"></i>
                     <div class="aura-btn"></div>
@@ -465,5 +478,89 @@
     <!-- Precargar fuentes Font Awesome para mejorar rendimiento -->
     <link rel="preload" href="./fonts/fontawesome/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./fonts/fontawesome/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Script para actualizar los enlaces de WhatsApp y teléfono con la configuración -->
+    <script>
+        // Función para actualizar todos los enlaces cuando el DOM esté listo
+        function updateContactLinks() {
+            if (typeof CONFIG === 'undefined') {
+                console.warn('La configuración no está disponible');
+                return;
+            }
+            
+            // Actualizar todos los enlaces de WhatsApp
+            const whatsappLinks = document.querySelectorAll('.whatsapp-link');
+            whatsappLinks.forEach(link => {
+                link.href = `https://wa.me/+${CONFIG.whatsapp.number}?text=${CONFIG.whatsapp.defaultMessage}`;
+            });
+            
+            // Verificar si hay número de teléfono configurado
+            const hasPhoneNumber = CONFIG.phone && CONFIG.phone.number && CONFIG.phone.number.trim() !== '';
+            
+            // Elementos que contienen los botones de teléfono
+            const phoneContainers = [
+                document.querySelector('.phone-container'),
+                document.querySelector('.arcane-phone-link'),
+                document.querySelector('.llamada-btn')
+            ];
+            
+            // Ocultar o mostrar contenedores de teléfono según configuración
+            phoneContainers.forEach(container => {
+                if (container) {
+                    container.style.display = hasPhoneNumber ? 'flex' : 'none';
+                }
+            });
+            
+            // Si no hay número de teléfono, ajustar el diseño
+            if (!hasPhoneNumber) {
+                // Ajustar el diseño cuando no hay botón de teléfono
+                const whatsappBtn = document.querySelector('.whatsapp-btn');
+                if (whatsappBtn) {
+                    whatsappBtn.style.marginTop = '0';
+                }
+            }
+            
+            // Actualizar todos los enlaces de teléfono solo si hay número configurado
+            if (hasPhoneNumber) {
+                const phoneElements = [
+                    { id: 'header-phone', textId: 'header-phone' },
+                    { id: 'arcane-phone', textId: 'arcane-phone-formatted' },
+                    { id: 'footer-phone', textId: 'footer-phone-text' },
+                    { id: 'floating-phone', textId: null }
+                ];
+                
+                phoneElements.forEach(elem => {
+                    const phoneLink = document.getElementById(elem.id);
+                    if (phoneLink) {
+                        phoneLink.href = `tel:${CONFIG.phone.number}`;
+                        
+                        // Si hay un elemento de texto asociado, actualizarlo
+                        if (elem.textId) {
+                            const textElement = elem.textId === elem.id ? phoneLink : document.getElementById(elem.textId);
+                            if (textElement) {
+                                textElement.textContent = elem.textId === 'arcane-phone-formatted' ? 
+                                    CONFIG.phone.formatted : CONFIG.phone.number;
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Actualizar el nombre del brujo si está configurado
+            if (CONFIG.brujo && CONFIG.brujo.name) {
+                const brujoNameElements = document.querySelectorAll('.arcane-highlight-name');
+                brujoNameElements.forEach(elem => {
+                    elem.textContent = CONFIG.brujo.name;
+                });
+            }
+        }
+        
+        // Ejecutar cuando el DOM esté completamente cargado
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateContactLinks);
+        } else {
+            updateContactLinks();
+        }
+    </script>
 </body>
 </html>
