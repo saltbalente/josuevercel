@@ -48,7 +48,6 @@ sitio_descargado/
 └── README.md              # 📖 Documentación
 ```
 
-<<<<<<< HEAD
 ## 🚀 Despliegue en Vercel
 
 ### Opción 1: Despliegue Automático
@@ -119,56 +118,3 @@ Este proyecto está optimizado para uso comercial del Brujo Jacob.
 ---
 
 **¡Sitio web optimizado de 0 a 100 en velocidad y diseño místico!** ✨🚀 
-=======
-## 🚀 Despliegue
-
-### Vercel (Recomendado)
-1. Conecta tu repositorio con Vercel
-2. El archivo `vercel.json` ya está configurado
-3. Despliegue automático en cada push
-
-### Otros Proveedores
-- **Netlify**: Compatible con configuración automática
-- **GitHub Pages**: Funciona perfectamente
-- **Firebase Hosting**: Soporte completo
-
-## ⚡ Optimizaciones Implementadas
-
-### Performance
-- **Lighthouse Score**: 95+ en todas las métricas
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-
-### SEO
-- **Meta Tags** completos
-- **Open Graph** configurado
-- **Structured Data** (JSON-LD)
-- **Sitemap** automático
-
-### Seguridad
-- **CSP Headers** configurados
-- **XSS Protection** activada
-- **HTTPS** forzado
-- **Headers de seguridad** completos
-
-## 📞 Contacto
-
-**Brujo Jacob**
-- 📱 Teléfono: +1-915-400-4296
-- 🌐 WhatsApp: Disponible 24/7
-- 📧 Consultas gratuitas
-
-## 🔮 Servicios
-
-- ❤️ Amarres de amor efectivos
-- 🔮 Hechizos y rituales
-- 🌟 Consultas espirituales
-- 🕯️ Limpias energéticas
-- 📿 Trabajos de santería
-- 🌙 Rituales de luna llena
-
----
-
-*Más de 35 años de experiencia ayudando a personas a encontrar el amor y la felicidad.*
->>>>>>> eb132722a8331462a245c72688f801513ecd6a73
