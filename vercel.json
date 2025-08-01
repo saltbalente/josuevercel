@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/server.js": {
-      "runtime": "edge"
-    }
-  },
   "rewrites": [
     { "source": "/debug", "destination": "/api/server" },
     { "source": "/js/(.*)", "destination": "/js/$1" },

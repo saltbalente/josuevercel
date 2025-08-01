@@ -9,8 +9,35 @@
 Las reglas de rewrite en `vercel.json` estaban interceptando TODAS las solicitudes, incluyendo los archivos JavaScript de configuración, causando que `CONFIG` apareciera como "no definida" en los subdominios.
 
 ### 🛠️ **Solución Implementada**
-Se agregaron reglas específicas en `vercel.json` para servir archivos estáticos directamente:
 
+#### Problema Identificado
+El middleware original estaba usando Node.js runtime, pero Vercel requiere Edge Functions para el manejo dinámico de subdominios. Esto causaba que:
+1. Las reglas de rewrite interceptaran archivos JavaScript
+2. El runtime de Node.js no fuera compatible con la infraestructura de Vercel
+3. Los archivos de configuración no se cargaran correctamente
+
+#### Solución Final: Conversión a Edge Functions
+
+**1. Actualización del Runtime**
+```json
+// vercel.json
+{
+  "functions": {
+    "api/server.js": {
+      "runtime": "edge"
+    }
+  }
+}
+```
+
+**2. Conversión del Middleware**
+- **Antes:** `module.exports = (req, res) => {}`
+- **Después:** `export default async function handler(req) {}`
+- **API:** Cambio de Node.js req/res a Web API Request/Response
+- **Headers:** `req.headers['x']` → `req.headers.get('x')`
+- **File System:** `fs.readFile()` → `fetch()`
+
+**3. Reglas de Rewrite Optimizadas**
 ```json
 "rewrites": [
   { "source": "/debug", "destination": "/api/server.js" },
@@ -24,10 +51,12 @@ Se agregaron reglas específicas en `vercel.json` para servir archivos estático
 
 ### ✅ **Verificación Local Exitosa**
 Las pruebas locales confirman que:
+- ✅ Edge Functions implementadas correctamente
 - ✅ Los archivos de configuración se sirven correctamente
 - ✅ La detección de subdominios funciona perfectamente
 - ✅ Cada subdominio carga su configuración específica
 - ✅ La página de debug muestra información correcta
+- ✅ Runtime compatible con Vercel
 
 ## Problema Reportado
 Los subdominios `brujeria-consulta-gratis.esoterico.app` y `amarres-de-amor-efectivos.esoterico.app` están mostrando la misma configuración en lugar de sus configuraciones específicas.

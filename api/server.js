@@ -1,4 +1,6 @@
 // Edge Function para Vercel que carga configuraciones basadas en subdominios
+export const runtime = 'edge';
+
 export default async function handler(req) {
   const url = new URL(req.url);
   const { pathname } = url;
