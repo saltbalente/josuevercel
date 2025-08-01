@@ -179,6 +179,33 @@ Este error ocurre cuando se configura incorrectamente el runtime de Edge Functio
 ### Referencia
 Según la [documentación oficial de Vercel](https://vercel.com/docs/functions/runtimes/edge), <mcreference link="https://vercel.com/docs/functions/runtimes/edge" index="2">2</mcreference> el runtime de Edge Functions debe declararse con `export const runtime = 'edge'` dentro del archivo de función.
 
+## Error "FUNCTION_INVOCATION_FAILED" - 500 Internal Server Error
+
+### Causa
+El Edge Function crashea debido a:
+- Fetch externo a GitHub que puede fallar
+- Loops infinitos en rewrite rules
+- Manejo inadecuado de errores
+- Dependencias externas no disponibles en Edge Runtime
+
+### Solución Implementada
+1. **HTML Embebido:** Eliminar fetch externo y usar HTML embebido directamente en la función
+2. **Configuración Dinámica:** Reemplazar dinámicamente el script de configuración basado en subdominio
+3. **Manejo Robusto:** Implementar lógica simple sin dependencias externas
+4. **Debug Mejorado:** Página de debug más informativa para troubleshooting
+
+**Código Clave:**
+```javascript
+// Mapeo directo sin funciones complejas
+const configMap = { 'subdominio': numeroConfig };
+const configNum = configMap[subdomain] || null;
+
+// HTML embebido con configuración dinámica
+const script = configNum ? 
+  `<script src="./js/configs/config-${configNum}.js"></script>` : 
+  '<script src="./js/config.js"></script>';
+```
+
 ## 📋 Checklist de Verificación
 
 - [ ] Los subdominios están configurados en Vercel
