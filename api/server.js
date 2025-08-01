@@ -270,14 +270,14 @@ export default async function handler(req) {
   const subdomain = extractSubdomain(host);
   const configNum = getConfigNumber(subdomain);
   
-  // Obtener la URL base para fetch
-   const baseUrl = url.origin;
-   
+  // Cargar el contenido del index.html desde el repositorio
    try {
-     // Cargar index.html usando fetch
-     const indexResponse = await fetch(`${baseUrl}/index.html`);
+     // Usar fetch con la URL del repositorio de GitHub para obtener el index.html
+     const githubRawUrl = 'https://raw.githubusercontent.com/saltbalente/josuevercel/main/index.html';
+     const indexResponse = await fetch(githubRawUrl);
+     
      if (!indexResponse.ok) {
-       return new Response('Error loading page', { status: 500 });
+       throw new Error('Failed to fetch index.html');
      }
      
      let indexContent = await indexResponse.text();
@@ -294,6 +294,31 @@ export default async function handler(req) {
        headers: { 'Content-Type': 'text/html; charset=utf-8' }
      });
    } catch (error) {
-     return new Response('Error loading configuration', { status: 500 });
-   }
+     // Fallback HTML si no se puede cargar desde GitHub
+     const fallbackHtml = `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brujo Jacob - Consulta Gratis</title>
+    <meta name="description" content="Consulta gratis con el Brujo Jacob. Amarres de amor, hechizos efectivos y brujería blanca. Resultados garantizados.">
+    <link rel="stylesheet" href="./css/critical.min.css">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+</head>
+<body>
+    <div style="text-align: center; padding: 2rem; color: white; background: #000;">
+        <h1>Brujo Jacob - Consulta Gratis</h1>
+        <p>Sitio en mantenimiento. Intenta nuevamente en unos minutos.</p>
+        <p>Subdominio detectado: ${subdomain || 'ninguno'}</p>
+        <p>Configuración: ${configNum || 'predeterminada'}</p>
+    </div>
+    ${configNum ? `<script src="./js/configs/config-${configNum}.js"></script>` : '<script src="./js/config.js"></script>'}
+    <script src="./js/main.min.js"></script>
+</body>
+</html>`;
+     
+     return new Response(fallbackHtml, {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      });
+    }
 };
