@@ -15,20 +15,17 @@ El middleware original estaba usando Node.js runtime, pero Vercel requiere Edge 
 1. Las reglas de rewrite interceptaran archivos JavaScript
 2. El runtime de Node.js no fuera compatible con la infraestructura de Vercel
 3. Los archivos de configuración no se cargaran correctamente
+4. Error de configuración de runtime: "Function Runtimes must have a valid version"
 
 #### Solución Final: Conversión a Edge Functions
 
-**1. Actualización del Runtime**
-```json
-// vercel.json
-{
-  "functions": {
-    "api/server.js": {
-      "runtime": "edge"
-    }
-  }
-}
+**1. Configuración Correcta del Runtime**
+```javascript
+// En api/server.js
+export const runtime = 'edge';
 ```
+
+**Nota**: La configuración de runtime debe estar en el archivo de función, no en `vercel.json`
 
 **2. Conversión del Middleware**
 - **Antes:** `module.exports = (req, res) => {}`
@@ -154,6 +151,33 @@ Los subdominios `brujeria-consulta-gratis.esoterico.app` y `amarres-de-amor-efec
 2. **Limpiar caché**:
    - Usar Ctrl+F5 o Cmd+Shift+R
    - Probar en modo incógnito
+
+## Error Específico: "Function Runtimes must have a valid version"
+
+### Causa
+Este error ocurre cuando se configura incorrectamente el runtime de Edge Functions en `vercel.json`.
+
+### Solución
+1. **CORRECTO**: Configurar runtime en el archivo de función
+   ```javascript
+   // api/server.js
+   export const runtime = 'edge';
+   ```
+
+2. **INCORRECTO**: Configurar runtime en vercel.json
+   ```json
+   // ❌ NO hacer esto
+   {
+     "functions": {
+       "api/server.js": {
+         "runtime": "edge"
+       }
+     }
+   }
+   ```
+
+### Referencia
+Según la [documentación oficial de Vercel](https://vercel.com/docs/functions/runtimes/edge), <mcreference link="https://vercel.com/docs/functions/runtimes/edge" index="2">2</mcreference> el runtime de Edge Functions debe declararse con `export const runtime = 'edge'` dentro del archivo de función.
 
 ## 📋 Checklist de Verificación
 
